@@ -1,7 +1,7 @@
 # encoding: utf-8
 from datetime import timedelta
 
-LOG_FILE = '/home/log/test_nginx_access.log'  # 日志文件路径
+LOG_FILE = '/home/log/weather_nginx_access.log'  # 日志文件路径
 EVENT_NAME = 'response'  # socketio 事件名称
 NAMESPACE = '/shell'  # socketio 名称空间
 
