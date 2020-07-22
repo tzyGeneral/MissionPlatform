@@ -30,7 +30,7 @@ def register_blueprints(app):
 
     app.register_blueprint(create_blueprint_v1(), url_prefix='/api/v1')
     app.register_blueprint(create_blueprint_v2(), url_prefix='/api/v2')
-    app.register_blueprint(admin_blueprint, url_prefix='/admin')
+    app.register_blueprint(admin_blueprint)
 
 
 def create_app():
