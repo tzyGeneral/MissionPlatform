@@ -24,6 +24,10 @@ def login():
 def index():
     return render_template('admin/index.html')
 
+@admin.route('/test')
+def hello():
+    return render_template('admin/test.html')
+
 
 @socketio.on('connect', namespace="/shell")
 def connect():
@@ -48,6 +52,12 @@ def client_info(data):
     else:
         socketio.emit('response', {'text': '未知命令'}, namespace='/shell')
 
+from apps.utils.TailLogFile import tail_command2
+@socketio.on('log', namespace='/shell')
+def log_info(data):
+    _type = data.get('_type')
+    if _type == 'tail':
+        tail_command2.background_thread()
 
 @socketio.on('leave', namespace="/shell")
 def leave(data):
